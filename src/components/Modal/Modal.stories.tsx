@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import "./Modal.story.css";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Modal from "./Modal";
-import { useModal } from "../hooks/useModal";
+import React, { useState } from "react";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -20,14 +20,16 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
 	return (
 		<>
-			Use the open property to toggle the modal preview.{" "}
-			<button onClick={toggleModal}>toggle modal</button>
+			<button onClick={toggleModal} className="btn-primary">
+				Click me!
+			</button>
 			<Modal {...args} toggleModal={toggleModal} isOpen={isOpen || args.isOpen}></Modal>
 		</>
 	);
 };
 
 export const SimpleModal = Template.bind({});
+export const SimpleModalWithFooter = Template.bind({});
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 SimpleModal.args = {
@@ -38,6 +40,19 @@ SimpleModal.args = {
 			recusandae unde minus placeat et quibusdam eligendi.
 		</>
 	),
-	footerContent: <button>Ok</button>,
-	haveFooter: true
+	haveFooter: false,
+	canClose: true,
+};
+
+SimpleModalWithFooter.args = {
+	title: "Hello world! I've a footer",
+	modalContent: (
+		<>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa animi nesciunt maiores quis
+			recusandae unde minus placeat et quibusdam eligendi.
+		</>
+	),
+	footerContent: <button className="btn-primary">Ok</button>,
+	haveFooter: true,
+	canClose: true
 };
