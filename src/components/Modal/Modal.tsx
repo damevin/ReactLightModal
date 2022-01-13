@@ -9,12 +9,14 @@ export interface ModalProps {
 	footerContent: JSX.Element;
 	title: string;
 	haveFooter: boolean;
+	toggleModal: () => void;
 }
 
 const Modal: FunctionComponent<ModalProps> = ({
 	isOpen,
 	title,
 	hide,
+	toggleModal,
 	modalContent,
 	haveFooter,
 	footerContent,
@@ -32,12 +34,12 @@ const Modal: FunctionComponent<ModalProps> = ({
 	}, [isOpen]);
 
 	const modal = (
-		<div className="overlay" onClick={hide}>
+		<div className="overlay" onClick={toggleModal}>
 			<div className="modal">
 				<div className="modal-content" aria-modal aria-labelledby={title} tabIndex={-1} role="dialog">
 					<h2>{title}</h2>
 					<div>{modalContent}</div>
-					<button className="close-modal" onClick={hide} data-dismiss="modal" aria-label="Close">
+					<button className="close-modal" onClick={toggleModal} data-dismiss="modal" aria-label="Close">
 						close
 					</button>
 					{haveFooter ? (
