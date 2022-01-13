@@ -14,20 +14,17 @@ export default {
 const Template: ComponentStory<typeof Modal> = (args) => {
 	const [isOpen, setOpen] = useState(args.isOpen);
 
-	const handleModalClose = () => {
+	const toggleModal = () => {
 		setOpen(!isOpen);
 	};
 
 	return (
 		<>
 			Use the open property to toggle the modal preview.{" "}
-			<Modal {...args} hide={handleModalClose} isOpen={isOpen}></Modal>
+			<button onClick={toggleModal}>toggle modal</button>
+			<Modal {...args} toggleModal={toggleModal} isOpen={isOpen || args.isOpen}></Modal>
 		</>
 	);
-};
-
-const toggleModal = () => {
-	alert("The component receive hide event");
 };
 
 export const SimpleModal = Template.bind({});
@@ -41,7 +38,6 @@ SimpleModal.args = {
 			recusandae unde minus placeat et quibusdam eligendi.
 		</>
 	),
-	isOpen: undefined,
 	footerContent: <button>Ok</button>,
-	haveFooter: true,
+	haveFooter: true
 };
