@@ -31,8 +31,6 @@ yarn add @damevin/reactlightmodal
 
 ## Usage/Examples
 
-Work in progress...
-
 ```javascript
 import Modal from '@damevin/reactlightmodal';
 import React, {useState} from "react;
@@ -50,6 +48,18 @@ function App() {
 }
 ```
 
+## Props
+
+| Name            | Type          | Required | Description                                                              | Default value     |
+| --------------- | ------------- | -------- | ------------------------------------------------------------------------ | ----------------- |
+| canClose        | `boolean`     | `false`  | Display cross button on the top-right of the modal box                   | `true`            |
+| closeBtnContent | `JSX.element` | `false`  | Custom content add on the close button (exemple: personalized icon, ...) | `{<span>X</span}` |
+| footerContent   | `JSX.element` | `false`  | Custom content to add to the footer (exemple: action buttons, ...)       | `{}`              |
+| haveFooter      | `boolean`     | `false`  | If his value is true, the modal have footer element                      | `false`           |
+| isOpen          | `boolean`     | `true`   | If his value is true, the modal is displayed                             | `false`           |
+| modalContent    | `JSX.element` | `true`   | Content of the modal                                                     | `{}`              |
+| title           | `string`      | `false`  | Modal header title                                                       | `""`              |
+
 ## Running Tests
 
 To run tests, run the following command
@@ -65,4 +75,3 @@ Contributions are always welcome!
 See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
-
