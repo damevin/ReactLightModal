@@ -3,27 +3,29 @@ import ReactDOM from "react-dom";
 import "./Modal.css";
 
 export interface ModalProps {
-	hide: () => void;
+	canClose: boolean;
+	closeBtnContent: JSX.Element;
+	footerContent: JSX.Element;
+	haveFooter: boolean;
 	isOpen: boolean;
 	modalContent: JSX.Element;
-	footerContent: JSX.Element;
 	title: string;
-	haveFooter: boolean;
 	toggleModal: () => void;
 }
 
 const Modal: FunctionComponent<ModalProps> = ({
-	isOpen,
-	title,
-	hide,
-	toggleModal,
-	modalContent,
-	haveFooter,
+	closeBtnContent,
+	canClose,
 	footerContent,
+	haveFooter,
+	isOpen,
+	modalContent,
+	title,
+	toggleModal,
 }) => {
 	const onKeyDown = (event: KeyboardEvent) => {
 		if (event.key === "Escape" && isOpen) {
-			hide();
+			toggleModal();
 		}
 	};
 	useEffect(() => {
@@ -33,19 +35,23 @@ const Modal: FunctionComponent<ModalProps> = ({
 		};
 	}, [isOpen]);
 
+	const getCloseContent = closeBtnContent ? closeBtnContent : "X";
+
 	const modal = (
 		<div className="overlay" onClick={toggleModal}>
 			<div className="modal">
 				<div className="modal-content" aria-modal aria-labelledby={title} tabIndex={-1} role="dialog">
 					<h2>{title}</h2>
 					<div>{modalContent}</div>
-					<button className="close-modal" onClick={toggleModal} data-dismiss="modal" aria-label="Close">
-						close
-					</button>
+					{canClose ? (
+						<button className="close-modal" onClick={toggleModal} data-dismiss="modal" aria-label="Close">
+							{getCloseContent}
+						</button>
+					) : null}
 					{haveFooter ? (
 						<>
 							<hr></hr>
-							<footer>{footerContent}</footer>
+							<footer className="modal-footer">{footerContent}</footer>
 						</>
 					) : null}
 				</div>
