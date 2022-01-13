@@ -10,6 +10,11 @@ ReactLightModal is a modal library, built in typescript light and accessible. It
 
 - [@raphaeldamevin](https://www.github.com/damevin)
 
+## Demo
+
+![demo gif](https://user-images.githubusercontent.com/72107589/149371773-01322567-8701-43f6-b0f5-940a84859318.gif)
+
+
 ## Installation
 
 Install ReactLightModal with npm
