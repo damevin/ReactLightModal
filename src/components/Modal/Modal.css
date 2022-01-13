@@ -1,34 +1,43 @@
 .btn-modal {
- padding: 1rem 2rem;
- display: block;
- margin:100px auto 0;
- font-size:19px
+	display: block;
+	font-size: 19px;
+	margin: 100px auto 0;
+	padding: 1rem 2rem;
 }
 
 .overlay {
- position: absolute;
- inset:0;
- background: rgba(49,49,49,0.8)
+	position: absolute;
+	inset: 0;
+	background: rgba(49, 49, 49, 0.8);
 }
 
 .modal {
- position: absolute;
- top: 40%;
- left: 50%;
- transform: translate(-50%, -50%);
- background: #f1f1f1;
- border-radius: 5px;
- max-width: 600px;
- min-width: 300px;
- padding: 1rem;
+	background: #f1f1f1;
+	border-radius: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	left: 50%;
+	max-width: 600px;
+	min-width: 300px;
+	padding: 1rem;
+	position: absolute;
+	top: 40%;
+	transform: translate(-50%, -50%);
 }
 
 .modal-content p {
- line-height: 1;
+	line-height: 1;
 }
 
 .close-modal {
- position: absolute;
- top: 10px;
- right: 10px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.modal-footer {
+	display: flex;
+	flex-direction: row-reverse;
 }
