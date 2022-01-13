@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 import Modal from "./Modal";
 
-describe("Modal", () => {
-	test("renders the Modal component", () => {
+describe("When i set isOpen to true", () => {
+	test("Then the Modal component should be displayed", () => {
 		render(
 			<Modal
 				title="Hello world !"

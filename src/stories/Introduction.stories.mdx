@@ -1,14 +1,6 @@
 import { Meta } from "@storybook/addon-docs";
-import Code from "./assets/code-brackets.svg";
-import Colors from "./assets/colors.svg";
-import Comments from "./assets/comments.svg";
-import Direction from "./assets/direction.svg";
-import Flow from "./assets/flow.svg";
-import Plugin from "./assets/plugin.svg";
 import GitHub from "./assets/github.svg";
 import Npm from "./assets/npm.svg";
-import Repo from "./assets/repo.svg";
-import StackAlt from "./assets/stackalt.svg";
 import { Canvas, Story } from "@storybook/addon-docs";
 
 <Meta title="ReactLightModal/Introduction" />
@@ -24,6 +16,12 @@ import { Canvas, Story } from "@storybook/addon-docs";
     text-transform: uppercase;
     margin-bottom: 12px;
     margin-top: 40px;
+  }
+
+  .section {
+    display: flex;
+    justify-content: center
+    padding: 20px;
   }
 
   .link-list {
@@ -123,11 +121,7 @@ ReactLightModal is a lightweight and accessible modal library built in tsx.
 <div className="subheading">Installation</div>
 
 <div className="link-list">
-	<a
-		className="link-item"
-		href="https://storybook.js.org/docs/react/addons/addon-types"
-		target="_blank"
-	>
+	<a className="link-item" href="https://github.com/damevin/ReactLightModal" target="_blank">
 		<img src={GitHub} alt="github" />
 		<span>
 			<strong>See this project on GitHub</strong>
@@ -136,19 +130,66 @@ ReactLightModal is a lightweight and accessible modal library built in tsx.
 	</a>
 	<a
 		className="link-item"
-		href="https://storybook.js.org/docs/react/addons/addon-types"
+		href="https://github.com/damevin/ReactLightModal/packages/1191419"
 		target="_blank"
 	>
 		<img src={Npm} alt="npm" />
-    		<strong>See this project on npm</strong>
-    </a>
-
+		<strong>See this project on npm</strong>
+	</a>
 </div>
 
-<div className="subheading">Démonstration</div>
+Install with npm
 
-<code>Include GIF </code>
+```shell
+npm install @damevin/reactlightmodal
+```
+
+or yarn
+
+```shell
+yarn add @damevin/reactlightmodal
+```
+
+<div className="subheading">Usage</div>
+
+```jsx
+import Modal from '@damevin/reactlightmodal';
+import React, {useState} from "react;
+
+const [isOpen, setOpen] = useState();
+
+const toggleModal = () => {
+    setOpen(!isOpen)
+}
+
+function App() {
+  return (
+      <Modal isOpen={isOpen} />
+  )
+}
+```
+
+<div className="subheading">Props</div>
+
+| Name            | Type          | Required | Description                                                              | Default value     |
+| --------------- | ------------- | -------- | ------------------------------------------------------------------------ | ----------------- |
+| canClose        | `boolean`     | `false`  | Display cross button on the top-right of the modal box                   | `true`            |
+| closeBtnContent | `JSX.element` | `false`  | Custom content add on the close button (exemple: personalized icon, ...) | `{<span>X</span}` |
+| footerContent   | `JSX.element` | `false`  | Custom content to add to the footer (exemple: action buttons, ...)       | `{}`              |
+| haveFooter      | `boolean`     | `false`  | If his value is true, the modal have footer element                      | `false`           |
+| isOpen          | `boolean`     | `true`   | If his value is true, the modal is displayed                             | `false`           |
+| modalContent    | `JSX.element` | `true`   | Content of the modal                                                     | `{}`              |
+| title           | `string`      | `false`  | Modal header title                                                       | `""`              |
+
+<div className="subheading">Demo</div>
+
+<div className="section">
+	<img src="https://user-images.githubusercontent.com/72107589/149371773-01322567-8701-43f6-b0f5-940a84859318.gif" />
+</div>
 
 <div className="tip-wrapper">
-	Made by <a>@damevin</a>
+	Made by{" "}
+	<a href="https://github.com/damevin" target="_blank">
+		@damevin
+	</a>
 </div>

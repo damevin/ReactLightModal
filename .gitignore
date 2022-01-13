@@ -9,8 +9,10 @@
 
 # Icon must end with two \r
 Icon
-dist
 
+
+dist
+coverage
 
 # Thumbnails
 ._*
